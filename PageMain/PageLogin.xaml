@@ -1,0 +1,56 @@
+﻿<Page x:Class="ZeroYz.PageMain.PageLogin"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ZeroYz.PageMain"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Окно аворизации">
+
+    <Grid>
+        <StackPanel
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+            
+            <StackPanel 
+                HorizontalAlignment="Center"
+                Orientation="Horizontal">
+                <TextBlock
+                    Width="150"
+                    Text="Введите логин"/>
+            
+                <TextBox Name="LoginTxb"/>
+            </StackPanel>
+
+            <StackPanel 
+                HorizontalAlignment="Center"
+                Margin="5,0,5,0"
+                Orientation="Horizontal">
+                <TextBlock
+                    Text="Введите пароль"
+                    Width="150"/>
+
+                <PasswordBox Name="PasswordBx"/>
+            </StackPanel>
+
+            <StackPanel
+                Margin="0,5,0,5"
+                Orientation="Horizontal">
+            <Button 
+                Name="LoginBtn"
+                Click="LoginBtn_Click"
+                Margin="5,0,5,5"
+                Content="Войти" 
+                Style="{StaticResource Accept Button}"/>
+            
+            <Button
+                Content="Регистрация"
+                Margin="0,0,5,5"
+                Name="BtnCreate"
+                Click="BtnCreate_Click"/>
+            </StackPanel>
+            
+        </StackPanel>
+    </Grid>
+</Page>

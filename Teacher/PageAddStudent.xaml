@@ -1,0 +1,69 @@
+﻿<Page x:Class="ZeroYz.Teacher.PageAddStudent"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ZeroYz.Teacher"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageAddStudent">
+
+    <Grid>
+        <Button Content="Назад"
+        Name="BtnBack"
+        Click ="BtnBack_Click"
+        Style="{StaticResource BtnTransparent }"/>
+
+        <StackPanel
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock 
+                    Width="150"
+                    Text="Введите ФИО"
+                    />
+                <TextBox />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock 
+                    Width="150"
+                    Text="Специальность"
+                    />
+                <ComboBox Name="CmbSpecial"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock 
+                    Width="150"
+                    Text="Год поступления"
+                    />
+                <ComboBox />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock 
+                    Width="150"
+                    Text="Форма обучения"
+                    />
+                <ComboBox />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock 
+                    Width="150"
+                    Text="Название группы"
+                    />
+                <ComboBox />
+            </StackPanel>
+
+            <Button 
+                Content="Создать студента"
+                Name="BtnAddStudent"
+                Click="BtnAddStudent_Click"
+                Style="{StaticResource Accept Button}"/>
+
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ZeroModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ZeroEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Disciplen" EntityType="ZeroModel.Disciplen" />
+    <EntitySet Name="FormTime" EntityType="ZeroModel.FormTime" />
+    <EntitySet Name="Journal" EntityType="ZeroModel.Journal" />
+    <EntitySet Name="NameGroup" EntityType="ZeroModel.NameGroup" />
+    <EntitySet Name="Role" EntityType="ZeroModel.Role" />
+    <EntitySet Name="Special" EntityType="ZeroModel.Special" />
+    <EntitySet Name="Student" EntityType="ZeroModel.Student" />
+    <EntitySet Name="sysdiagrams" EntityType="ZeroModel.sysdiagrams" />
+    <EntitySet Name="Teacher" EntityType="ZeroModel.Teacher" />
+    <EntitySet Name="User" EntityType="ZeroModel.User" />
+    <EntitySet Name="YearAdd" EntityType="ZeroModel.YearAdd" />
+    <AssociationSet Name="FK_Journal_Disciplen" Association="ZeroModel.FK_Journal_Disciplen">
+      <End Role="Disciplen" EntitySet="Disciplen" />
+      <End Role="Journal" EntitySet="Journal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Teacher_Disciplen" Association="ZeroModel.FK_Teacher_Disciplen">
+      <End Role="Disciplen" EntitySet="Disciplen" />
+      <End Role="Teacher" EntitySet="Teacher" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Student_FormTime" Association="ZeroModel.FK_Student_FormTime">
+      <End Role="FormTime" EntitySet="FormTime" />
+      <End Role="Student" EntitySet="Student" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Journal_NameGroup" Association="ZeroModel.FK_Journal_NameGroup">
+      <End Role="NameGroup" EntitySet="NameGroup" />
+      <End Role="Journal" EntitySet="Journal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Journal_Student" Association="ZeroModel.FK_Journal_Student">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="Journal" EntitySet="Journal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Role" Association="ZeroModel.FK_User_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Student_Special" Association="ZeroModel.FK_Student_Special">
+      <End Role="Special" EntitySet="Special" />
+      <End Role="Student" EntitySet="Student" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Student_YearAdd" Association="ZeroModel.FK_Student_YearAdd">
+      <End Role="YearAdd" EntitySet="YearAdd" />
+      <End Role="Student" EntitySet="Student" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Disciplen">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Journal" Relationship="ZeroModel.FK_Journal_Disciplen" FromRole="Disciplen" ToRole="Journal" />
+    <NavigationProperty Name="Teacher" Relationship="ZeroModel.FK_Teacher_Disciplen" FromRole="Disciplen" ToRole="Teacher" />
+  </EntityType>
+  <EntityType Name="FormTime">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Student" Relationship="ZeroModel.FK_Student_FormTime" FromRole="FormTime" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Journal">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idStudent" Type="Int32" Nullable="false" />
+    <Property Name="IdDisciplen" Type="Int32" Nullable="false" />
+    <Property Name="Evaluation" Type="Int32" Nullable="false" />
+    <Property Name="IdNameGroup" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Disciplen" Relationship="ZeroModel.FK_Journal_Disciplen" FromRole="Journal" ToRole="Disciplen" />
+    <NavigationProperty Name="NameGroup" Relationship="ZeroModel.FK_Journal_NameGroup" FromRole="Journal" ToRole="NameGroup" />
+    <NavigationProperty Name="Student" Relationship="ZeroModel.FK_Journal_Student" FromRole="Journal" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="NameGroup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Journal" Relationship="ZeroModel.FK_Journal_NameGroup" FromRole="NameGroup" ToRole="Journal" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="ZeroModel.FK_User_Role" FromRole="Role" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Special">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Student" Relationship="ZeroModel.FK_Student_Special" FromRole="Special" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IdSpecial" Type="Int32" Nullable="false" />
+    <Property Name="IdYearAdd" Type="Int32" Nullable="false" />
+    <Property Name="IdFormTime" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="FormTime" Relationship="ZeroModel.FK_Student_FormTime" FromRole="Student" ToRole="FormTime" />
+    <NavigationProperty Name="Journal" Relationship="ZeroModel.FK_Journal_Student" FromRole="Student" ToRole="Journal" />
+    <NavigationProperty Name="Special" Relationship="ZeroModel.FK_Student_Special" FromRole="Student" ToRole="Special" />
+    <NavigationProperty Name="YearAdd" Relationship="ZeroModel.FK_Student_YearAdd" FromRole="Student" ToRole="YearAdd" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Teacher">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IdDesciplen" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Disciplen" Relationship="ZeroModel.FK_Teacher_Disciplen" FromRole="Teacher" ToRole="Disciplen" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Login" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IdRole" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Role" Relationship="ZeroModel.FK_User_Role" FromRole="User" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="YearAdd">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Year" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Student" Relationship="ZeroModel.FK_Student_YearAdd" FromRole="YearAdd" ToRole="Student" />
+  </EntityType>
+  <Association Name="FK_Journal_Disciplen">
+    <End Type="ZeroModel.Disciplen" Role="Disciplen" Multiplicity="1" />
+    <End Type="ZeroModel.Journal" Role="Journal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Disciplen">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Journal">
+        <PropertyRef Name="IdDisciplen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Teacher_Disciplen">
+    <End Type="ZeroModel.Disciplen" Role="Disciplen" Multiplicity="1" />
+    <End Type="ZeroModel.Teacher" Role="Teacher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Disciplen">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Teacher">
+        <PropertyRef Name="IdDesciplen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Student_FormTime">
+    <End Type="ZeroModel.FormTime" Role="FormTime" Multiplicity="1" />
+    <End Type="ZeroModel.Student" Role="Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FormTime">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="IdFormTime" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Journal_NameGroup">
+    <End Type="ZeroModel.NameGroup" Role="NameGroup" Multiplicity="1" />
+    <End Type="ZeroModel.Journal" Role="Journal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NameGroup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Journal">
+        <PropertyRef Name="IdNameGroup" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Journal_Student">
+    <End Type="ZeroModel.Student" Role="Student" Multiplicity="1" />
+    <End Type="ZeroModel.Journal" Role="Journal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Journal">
+        <PropertyRef Name="idStudent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Role">
+    <End Type="ZeroModel.Role" Role="Role" Multiplicity="1" />
+    <End Type="ZeroModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="IdRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Student_Special">
+    <End Type="ZeroModel.Special" Role="Special" Multiplicity="1" />
+    <End Type="ZeroModel.Student" Role="Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Special">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="IdSpecial" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Student_YearAdd">
+    <End Type="ZeroModel.YearAdd" Role="YearAdd" Multiplicity="1" />
+    <End Type="ZeroModel.Student" Role="Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YearAdd">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="IdYearAdd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

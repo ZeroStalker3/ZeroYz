@@ -1,0 +1,73 @@
+﻿<Page x:Class="ZeroYz.PageMain.PageRegistration"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ZeroYz.PageMain"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Окно регистрации">
+
+    <Grid>
+        <Button Content="Назад"
+                Width="50"
+                Height="20"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                BorderBrush="Transparent"
+                Background="Transparent"
+                Name="BackBtn"
+                Click="BackBtn_Click"
+            />
+        <StackPanel
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center">
+            
+            <StackPanel 
+            HorizontalAlignment="Center"
+            Orientation="Horizontal">
+                <TextBlock
+                Width="150"
+                Text="Введите логин"/>
+
+                <TextBox Name="LogingTB"/>
+            </StackPanel>
+
+            <StackPanel 
+            HorizontalAlignment="Center"
+            Margin="5,0,5,0"
+            Orientation="Horizontal">
+                <TextBlock
+                Text="Введите пароль"
+                Width="150"/>
+
+                <TextBox Name="Psw1"/>
+            </StackPanel>
+
+            <StackPanel 
+                 HorizontalAlignment="Center"
+                 Margin="5,5,5,0"
+                 Orientation="Horizontal">
+                <TextBlock
+                     Text="Повторите пароль"
+                     Width="150"/>
+
+                <PasswordBox Name="Psw2" PasswordChanged="Psw2_PasswordChanged"/>
+            </StackPanel>
+
+            <StackPanel
+            Margin="0,5,0,5"
+            Orientation="Horizontal"
+                HorizontalAlignment="Center">
+                <Button 
+                    IsEnabled="False"
+                    Margin="5,0,5,5"
+                    Content="Создать" 
+                    Name="CreateBtn"
+                    Click="CreateBtn_Click"
+                    Style="{StaticResource Accept Button}"/>    
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</Page>
