@@ -34,6 +34,7 @@
                 <PasswordBox Name="PasswordBx"/>
             </StackPanel>
 
+            
             <StackPanel
                 Margin="0,5,0,5"
                 Orientation="Horizontal">
@@ -50,7 +51,14 @@
                 Name="BtnCreate"
                 Click="BtnCreate_Click"/>
             </StackPanel>
-            
+
+            <CheckBox
+                HorizontalAlignment="Right"
+                Name="ChkSaveLogin"
+                Margin="5,0,15,5"
+                IsChecked="True"
+                Content="Сохранить логин"/>      
+
         </StackPanel>
     </Grid>
 </Page>

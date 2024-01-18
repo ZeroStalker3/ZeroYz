@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 B:\VS FILES\ZeroYz\App.xaml
-10-1669362180
+11-2076498784
 2146945207
-31-1596976491
+322115249681
 181656027873
-PageMain\PageStudent.xaml;MainWindow.xaml;PageMain\PageLogin.xaml;PageMain\PageRegistration.xaml;PageMain\PageTeacher.xaml;Teacher\PageAddStudent.xaml;Teacher\PageEditEval.xaml;Teacher\PageEvaluation.xaml;Teacher\PageJournalStudent.xaml;Teacher\PageListStudent.xaml;
+PageMain\PageStudent.xaml;MainWindow.xaml;PageMain\PageLogin.xaml;PageMain\PageRegistration.xaml;PageMain\PageTeacher.xaml;Teacher\PageAddStudent.xaml;Teacher\PageEditEval.xaml;Teacher\PageEditEvalStudent.xaml;Teacher\PageEvaluation.xaml;Teacher\PageJournalStudent.xaml;Teacher\PageListStudent.xaml;
 
 False
 

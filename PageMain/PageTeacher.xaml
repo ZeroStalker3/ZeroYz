@@ -32,7 +32,8 @@
                         Click="BtnListStudent_Click"/>
                 
                 <Button Content = "Редактировать оценки"
-                        />
+                        Name="EditEval"
+                        Click="EditEval_Click"/>
                 
                 <Button Content = "Удалить студента"
                         />

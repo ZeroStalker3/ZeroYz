@@ -26,6 +26,25 @@ namespace ZeroYz.PageMain
         public PageLogin()
         {
             InitializeComponent();
+
+            if (Properties.Settings.Default.SaveLogin != string.Empty)
+            {
+                LoginTxb.Text = Properties.Settings.Default.SaveLogin;
+            }
+        }
+
+        public void RememberMe()
+        {
+            if (ChkSaveLogin.IsChecked == true)
+            {
+                Properties.Settings.Default.SaveLogin = LoginTxb.Text;
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                Properties.Settings.Default.SaveLogin = "";
+                Properties.Settings.Default.Save();
+            }
         }
 
         private void BtnCreate_Click(object sender, RoutedEventArgs e)
@@ -59,10 +78,12 @@ namespace ZeroYz.PageMain
                     switch (userObj.IdRole)
                     {
                         case 1:
+                            RememberMe();
                             UserControlHelp.LoginUser = LoginTxb.Text;
                             FrameApp.frmObj.Navigate(new PageStudent());
                             break;
                         case 2:
+                            RememberMe();
                             FrameApp.frmObj.Navigate(new PageTeacher());
                             break;
                     }

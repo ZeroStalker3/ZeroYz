@@ -24,8 +24,12 @@ namespace ZeroYz.Teacher
         public PageJournalStudent(Student student)
         {
             InitializeComponent();
+
             Name.Text = student.Name;
+
             GridListStudent.ItemsSource = OdbConnectHelper.entObj.Journal.Where(x => x.idStudent == student.Id).ToList();
+            GridListStudent.SelectedIndex = 0;
+            GridListStudent.Columns[0].IsReadOnly = true;
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)
@@ -47,6 +51,11 @@ namespace ZeroYz.Teacher
                     MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+        }
+
+        private void BtnSave_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

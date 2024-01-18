@@ -32,5 +32,10 @@ namespace ZeroYz.DataFilesApp
         {
             FrameApp.frmObj.GoBack();
         }
+
+        private void SaveBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

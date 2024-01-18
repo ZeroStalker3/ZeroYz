@@ -6,18 +6,24 @@
       xmlns:local="clr-namespace:ZeroYz.Teacher"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PageEditEval">
+      Title="Страница редактирования оценок">
 
     <Grid>
         <Button 
             Style="{StaticResource BtnTransparent}"
             Name="Back"
             Click="Back_Click"/>
+        <Button Content="Назад"
+            Name="BtnSave"
+            Click="BtnSave_Click"
+            Style="{StaticResource BtnTransparent }"/>
         <StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock
-                    Text="Выберите группу: "/>
-                <ComboBox Name="CmbSelectGroup"/>
+                    Text="Выберите группу: "
+                    VerticalAlignment="Center"/>
+                <ComboBox Name="CmbSelectGroup"
+                          SelectionChanged="CmbSelectGroup_SelectionChanged"/>
             </StackPanel>
 
             <DataGrid
@@ -27,12 +33,17 @@
                 Height="220"
                 Name="ListStudent">
                 <DataGrid.Columns>
-                    <DataGridTemplateColumn 
+                    <DataGridTextColumn 
                         Width="*"
-                        Header="ФИО студента">
+                        Header="ФИО студента"
+                        Binding ="{Binding Name}"/>
+                    <DataGridTemplateColumn 
+                        Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Редактировать оценки"/>
+                                <Button Content="Редактировать оценки"
+                                        Name="Edit"
+                                        Click="Edit_Click"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

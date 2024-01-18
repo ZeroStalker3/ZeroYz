@@ -23,6 +23,7 @@
                 Style="{StaticResource BtnTransparent}"
                 Name="Back"
                 Click="Back_Click"/>
+
         </StackPanel>
         <StackPanel
             Name="DataPrint">
