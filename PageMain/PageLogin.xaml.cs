@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ZeroYz.DataFilesApp;
+using ZeroYz.ClassHelper;
 
 namespace ZeroYz.PageMain
 {
@@ -58,17 +59,10 @@ namespace ZeroYz.PageMain
                     switch (userObj.IdRole)
                     {
                         case 1:
-                            //MessageBox.Show("Здравствуйте, " + userObj.Login + " Ученик",
-                            //    "Уведомление",
-                            //     MessageBoxButton.OK,
-                            //     MessageBoxImage.Information);
+                            UserControlHelp.LoginUser = LoginTxb.Text;
                             FrameApp.frmObj.Navigate(new PageStudent());
                             break;
                         case 2:
-                            //MessageBox.Show("Здравствуйте, "+ userObj.Login + " Учитель",
-                            //    "Уведомление",
-                            //     MessageBoxButton.OK,
-                            //     MessageBoxImage.Information);
                             FrameApp.frmObj.Navigate(new PageTeacher());
                             break;
                     }

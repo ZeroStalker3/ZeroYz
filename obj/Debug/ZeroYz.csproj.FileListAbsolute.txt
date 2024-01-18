@@ -31,3 +31,11 @@ B:\VS FILES\ZeroYz\obj\Debug\PageMain\PageStudent.baml
 B:\VS FILES\ZeroYz\obj\Debug\PageMain\PageTeacher.baml
 B:\VS FILES\ZeroYz\obj\Debug\Teacher\PageAddStudent.g.cs
 B:\VS FILES\ZeroYz\obj\Debug\Teacher\PageAddStudent.baml
+B:\VS FILES\ZeroYz\obj\Debug\Teacher\PageEvaluation.g.cs
+B:\VS FILES\ZeroYz\obj\Debug\Teacher\PageEvaluation.baml
+B:\VS FILES\ZeroYz\obj\Debug\Teacher\PageListStudent.g.cs
+B:\VS FILES\ZeroYz\obj\Debug\Teacher\PageListStudent.baml
+B:\VS FILES\ZeroYz\obj\Debug\Teacher\PageJournalStudent.g.cs
+B:\VS FILES\ZeroYz\obj\Debug\Teacher\PageJournalStudent.baml
+B:\VS FILES\ZeroYz\obj\Debug\Teacher\PageEditEval.g.cs
+B:\VS FILES\ZeroYz\obj\Debug\Teacher\PageEditEval.baml

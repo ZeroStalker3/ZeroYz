@@ -1,0 +1,79 @@
+﻿<Page x:Class="ZeroYz.Teacher.PageListStudent"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ZeroYz.Teacher"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Оценки Студента ">
+
+    <Grid>
+        <Button 
+            Style="{StaticResource BtnTransparent}"
+            Name="Back"
+            Click="Back_Click"/>
+        <StackPanel
+            >
+            <StackPanel
+                HorizontalAlignment="Center"
+                Orientation="Horizontal">
+                <TextBlock
+                    Text="Выберите группу:"
+                    VerticalAlignment="Center"/>
+                <ComboBox 
+                    
+                    Name="CmbSelectyGroup"/>
+                <Button
+                    Margin="0,5,5,5"
+                    Content="OK"
+                    FontWeight="Bold"
+                    Name="Search"
+                    Click="Search_Click"
+                    Style="{StaticResource Accept Button}"/>
+            </StackPanel>
+
+            <DataGrid
+                Name="GridList"
+                Height="220"
+                AutoGenerateColumns="False"
+                VerticalScrollBarVisibility="Auto" 
+                IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn
+                        Width="*"
+                        Binding="{Binding Name}"
+                        Header="Студент"/>
+                    <DataGridTextColumn
+                        Width="*"
+                        Binding="{Binding NameGroup.Name}"
+                        Header="Группа"/>
+                    <DataGridTextColumn
+                        Width="*"
+                        Binding="{Binding Special.Name}"
+                        Header="Специальность"/>
+                    <DataGridTextColumn
+                        Width="*"
+                        Binding="{Binding FormTime.Name}"
+                        Header="Форма обучения"/>
+                    <DataGridTextColumn
+                        Width="*"
+                        Binding="{Binding YearAdd.Year}"
+                        Header="Год Поступления"/>
+                    <DataGridTemplateColumn
+                        Width="120">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button 
+                                    Width="100"
+                                    Content="Профиль"
+                                    Name="BtnProfile"
+                                    Click="BtnProfile_Click"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</Page>

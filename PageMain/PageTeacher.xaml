@@ -9,12 +9,12 @@
       Title="Страница учителя">
 
     <Grid>
-        <Button Content="Назад"
+        <Button 
                 Name="BtnBack"
                 Click="BtnBack_Click"
                 Style="{StaticResource BtnTransparent }"/>
 
-        <!-- менб Преподователя-->
+        <!-- меню Преподователя-->
         <Grid>
             <StackPanel HorizontalAlignment="Center"
                         VerticalAlignment="Center">
@@ -24,10 +24,12 @@
                         Click="BtnAddStudent_Click"/>
                 
                 <Button Content = "Добавить Оценку"
-                        />
+                        Name="BtnAddEvaluation"
+                        Click="BtnAddEvaluation_Click"/>
                 
                 <Button Content = "Список студентов"
-                        />
+                        Name="BtnListStudent"
+                        Click="BtnListStudent_Click"/>
                 
                 <Button Content = "Редактировать оценки"
                         />

@@ -55,6 +55,7 @@
     <EntitySetMapping Name="Student">
       <EntityTypeMapping TypeName="ZeroModel.Student">
         <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="IdNameGroup" ColumnName="IdNameGroup" />
           <ScalarProperty Name="IdFormTime" ColumnName="IdFormTime" />
           <ScalarProperty Name="IdYearAdd" ColumnName="IdYearAdd" />
           <ScalarProperty Name="IdSpecial" ColumnName="IdSpecial" />

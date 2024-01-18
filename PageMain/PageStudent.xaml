@@ -13,6 +13,21 @@
                 Name="BtnBack"
                 Click="BtnBack_Click"
                 Style="{StaticResource BtnTransparent }"/>
+
+        <StackPanel 
+            Orientation="Horizontal"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top">
+            <TextBlock
+                FontWeight="Bold"
+                FontSize="14pt"
+                Text="Логин: "/>
+            <TextBlock 
+                Margin="5,0,0,0"
+                FontSize="14pt"
+                FontWeight="Bold"
+                Name="TxtLogin"/>
+        </StackPanel>
         
     </Grid>
 </Page>

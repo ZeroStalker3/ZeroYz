@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using ZeroYz.DataFilesApp;
 
 namespace ZeroYz.Teacher
@@ -24,7 +14,22 @@ namespace ZeroYz.Teacher
         public PageAddStudent()
         {
             InitializeComponent();
-            
+
+            CmbSpecial.SelectedValuePath = "Id";
+            CmbSpecial.DisplayMemberPath = "Name";
+            CmbSpecial.ItemsSource = OdbConnectHelper.entObj.Special.ToList();
+
+            CmbYear.SelectedValuePath = "Id";
+            CmbYear.DisplayMemberPath = "Year";
+            CmbYear.ItemsSource = OdbConnectHelper.entObj.YearAdd.ToList();
+
+            CmbFT.SelectedValuePath = "Id";
+            CmbFT.DisplayMemberPath = "Name";
+            CmbFT.ItemsSource = OdbConnectHelper.entObj.FormTime.ToList();
+
+            CmbNG.SelectedValuePath = "Id";
+            CmbNG.DisplayMemberPath = "Name";
+            CmbNG.ItemsSource = OdbConnectHelper.entObj.NameGroup.ToList();
         }
 
         /// <summary>
@@ -34,11 +39,39 @@ namespace ZeroYz.Teacher
         /// <param name="e"></param>
         private void BtnAddStudent_Click(object sender, RoutedEventArgs e)
         {
-            CmbSpecial.SelectedValuePath = "Id";
-            CmbSpecial.DisplayMemberPath = "Name";
-            CmbSpecial.ItemsSource = OdbConnectHelper.entObj.Special.ToList();
+            try
+            {
+                Student stdObj = new Student()
+                {
+                    Name = TbNameStudent.Text,
+                    Special = CmbSpecial.SelectedItem as Special,
+                    YearAdd = CmbYear.SelectedItem as YearAdd,
+                    FormTime = CmbFT.SelectedItem as FormTime,
+                    NameGroup = CmbNG.SelectedItem as NameGroup
+                };
+
+                OdbConnectHelper.entObj.Student.Add(stdObj);
+                OdbConnectHelper.entObj.SaveChanges();
+                MessageBox.Show("Ученик " + stdObj.Name + " успешно добавлен в базу", "Уведомление",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+                FrameApp.frmObj.GoBack();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Критический сбор в работе приложения " + ex.Message.ToString(), "Уведомление",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning);
+            }
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             FrameApp.frmObj.GoBack();

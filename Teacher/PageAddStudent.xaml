@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:ZeroYz.Teacher"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PageAddStudent">
+      Title="Страница добавления студента">
 
     <Grid>
         <Button Content="Назад"
@@ -23,7 +23,7 @@
                     Width="150"
                     Text="Введите ФИО"
                     />
-                <TextBox />
+                <TextBox Name="TbNameStudent"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
@@ -39,7 +39,7 @@
                     Width="150"
                     Text="Год поступления"
                     />
-                <ComboBox />
+                <ComboBox Name="CmbYear"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
@@ -47,7 +47,7 @@
                     Width="150"
                     Text="Форма обучения"
                     />
-                <ComboBox />
+                <ComboBox Name="CmbFT"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
@@ -55,7 +55,7 @@
                     Width="150"
                     Text="Название группы"
                     />
-                <ComboBox />
+                <ComboBox Name="CmbNG"/>
             </StackPanel>
 
             <Button 

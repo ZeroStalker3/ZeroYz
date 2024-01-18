@@ -59,6 +59,7 @@
           <Property Name="IdSpecial" Type="int" Nullable="false" />
           <Property Name="IdYearAdd" Type="int" Nullable="false" />
           <Property Name="IdFormTime" Type="int" Nullable="false" />
+          <Property Name="IdNameGroup" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -142,6 +143,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Student_NameGroup">
+          <End Role="NameGroup" Type="Self.NameGroup" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NameGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="IdNameGroup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Student_Special">
           <End Role="Special" Type="Self.Special" Multiplicity="1" />
           <End Role="Student" Type="Self.Student" Multiplicity="*" />
@@ -218,6 +231,10 @@
             <End Role="FormTime" EntitySet="FormTime" />
             <End Role="Student" EntitySet="Student" />
           </AssociationSet>
+          <AssociationSet Name="FK_Student_NameGroup" Association="Self.FK_Student_NameGroup">
+            <End Role="NameGroup" EntitySet="NameGroup" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
           <AssociationSet Name="FK_Student_Special" Association="Self.FK_Student_Special">
             <End Role="Special" EntitySet="Special" />
             <End Role="Student" EntitySet="Student" />
@@ -283,6 +300,10 @@
             <End Role="YearAdd" EntitySet="YearAdd" />
             <End Role="Student" EntitySet="Student" />
           </AssociationSet>
+          <AssociationSet Name="FK_Student_NameGroup" Association="ZeroModel.FK_Student_NameGroup">
+            <End Role="NameGroup" EntitySet="NameGroup" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Disciplen">
           <Key>
@@ -321,6 +342,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Journal" Relationship="ZeroModel.FK_Journal_NameGroup" FromRole="NameGroup" ToRole="Journal" />
+          <NavigationProperty Name="Student" Relationship="ZeroModel.FK_Student_NameGroup" FromRole="NameGroup" ToRole="Student" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -351,6 +373,8 @@
           <NavigationProperty Name="Journal" Relationship="ZeroModel.FK_Journal_Student" FromRole="Student" ToRole="Journal" />
           <NavigationProperty Name="Special" Relationship="ZeroModel.FK_Student_Special" FromRole="Student" ToRole="Special" />
           <NavigationProperty Name="YearAdd" Relationship="ZeroModel.FK_Student_YearAdd" FromRole="Student" ToRole="YearAdd" />
+          <Property Name="IdNameGroup" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="NameGroup" Relationship="ZeroModel.FK_Student_NameGroup" FromRole="Student" ToRole="NameGroup" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -485,6 +509,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Student_NameGroup">
+          <End Type="ZeroModel.NameGroup" Role="NameGroup" Multiplicity="1" />
+          <End Type="ZeroModel.Student" Role="Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NameGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="IdNameGroup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -545,6 +581,7 @@
           <EntitySetMapping Name="Student">
             <EntityTypeMapping TypeName="ZeroModel.Student">
               <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="IdNameGroup" ColumnName="IdNameGroup" />
                 <ScalarProperty Name="IdFormTime" ColumnName="IdFormTime" />
                 <ScalarProperty Name="IdYearAdd" ColumnName="IdYearAdd" />
                 <ScalarProperty Name="IdSpecial" ColumnName="IdSpecial" />

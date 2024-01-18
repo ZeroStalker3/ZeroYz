@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ZeroYz.ClassHelper;
 
 namespace ZeroYz.DataFilesApp
 {
@@ -23,6 +24,8 @@ namespace ZeroYz.DataFilesApp
         public PageStudent()
         {
             InitializeComponent();
+
+            TxtLogin.Text = UserControlHelp.LoginUser; 
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)

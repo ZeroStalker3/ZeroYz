@@ -64,8 +64,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ClassHelper\UserControlHelp.cs" />
     <Compile Include="Teacher\PageAddStudent.xaml.cs">
       <DependentUpon>PageAddStudent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Teacher\PageEditEval.xaml.cs">
+      <DependentUpon>PageEditEval.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Teacher\PageEvaluation.xaml.cs">
+      <DependentUpon>PageEvaluation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Teacher\PageJournalStudent.xaml.cs">
+      <DependentUpon>PageJournalStudent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Teacher\PageListStudent.xaml.cs">
+      <DependentUpon>PageListStudent.xaml</DependentUpon>
     </Compile>
     <Page Include="PageMain\PageStudent.xaml">
       <SubType>Designer</SubType>
@@ -149,6 +162,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Teacher\PageAddStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Teacher\PageEditEval.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Teacher\PageEvaluation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Teacher\PageJournalStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Teacher\PageListStudent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -54,6 +54,7 @@
     <Property Name="IdSpecial" Type="int" Nullable="false" />
     <Property Name="IdYearAdd" Type="int" Nullable="false" />
     <Property Name="IdFormTime" Type="int" Nullable="false" />
+    <Property Name="IdNameGroup" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -137,6 +138,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Student_NameGroup">
+    <End Role="NameGroup" Type="Self.NameGroup" Multiplicity="1" />
+    <End Role="Student" Type="Self.Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NameGroup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="IdNameGroup" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Student_Special">
     <End Role="Special" Type="Self.Special" Multiplicity="1" />
     <End Role="Student" Type="Self.Student" Multiplicity="*" />
@@ -211,6 +224,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_Student_FormTime" Association="Self.FK_Student_FormTime">
       <End Role="FormTime" EntitySet="FormTime" />
+      <End Role="Student" EntitySet="Student" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Student_NameGroup" Association="Self.FK_Student_NameGroup">
+      <End Role="NameGroup" EntitySet="NameGroup" />
       <End Role="Student" EntitySet="Student" />
     </AssociationSet>
     <AssociationSet Name="FK_Student_Special" Association="Self.FK_Student_Special">

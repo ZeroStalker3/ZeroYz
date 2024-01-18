@@ -36,5 +36,15 @@ namespace ZeroYz.PageMain
         {
             FrameApp.frmObj.Navigate(new PageAddStudent());
         }
+
+        private void BtnAddEvaluation_Click(object sender, RoutedEventArgs e)
+        {
+            FrameApp.frmObj.Navigate(new PageEvaluation());
+        }
+
+        private void BtnListStudent_Click(object sender, RoutedEventArgs e)
+        {
+            FrameApp.frmObj.Navigate(new PageListStudent());
+        }
     }
 }
