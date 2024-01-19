@@ -25,7 +25,9 @@ namespace ZeroYz.Teacher
         public PageEditEvalStudent(Student student)
         {
             InitializeComponent();
+
             Name.Text = student.Name;
+            NameStudent = student.Name;
  
             GridListStudent.ItemsSource = OdbConnectHelper.entObj.Journal.Where(x => x.idStudent == student.Id).ToList();
             GridListStudent.SelectedIndex = 0;
@@ -34,6 +36,14 @@ namespace ZeroYz.Teacher
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
+            History historyObj = new History()
+            {
+                IdTeacher = 2 ,
+                IdStudent = 2,
+                IdStatus = 2,
+                DateEvent
+            };
+
             OdbConnectHelper.entObj.SaveChanges();
             MessageBox.Show("Данные успешно изменены у студента" + NameStudent, 
                 "Уведомления", MessageBoxButton.OK, MessageBoxImage.Information);

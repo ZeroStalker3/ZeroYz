@@ -12,21 +12,16 @@ namespace ZeroYz.DataFilesApp
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class History
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
-        {
-            this.History = new HashSet<History>();
-        }
+        public int Id { get; set; }
+        public int IdTeacher { get; set; }
+        public int IdStudent { get; set; }
+        public int IdStatus { get; set; }
+        public System.DateTime DateEvent { get; set; }
     
-        public int ID { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
-        public int IdRole { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<History> History { get; set; }
-        public virtual Role Role { get; set; }
+        public virtual Status Status { get; set; }
+        public virtual Student Student { get; set; }
+        public virtual User User { get; set; }
     }
 }

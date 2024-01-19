@@ -19,6 +19,16 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="History">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdTeacher" Type="int" Nullable="false" />
+          <Property Name="IdStudent" Type="int" Nullable="false" />
+          <Property Name="IdStatus" Type="int" Nullable="false" />
+          <Property Name="DateEvent" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="Journal">
           <Key>
             <PropertyRef Name="id" />
@@ -49,6 +59,13 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
@@ -95,6 +112,42 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Year" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <Association Name="FK_History_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
+          <End Role="History" Type="Self.History" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="History">
+              <PropertyRef Name="IdStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_History_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="History" Type="Self.History" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="History">
+              <PropertyRef Name="IdStudent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_History_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="History" Type="Self.History" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="History">
+              <PropertyRef Name="IdTeacher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Journal_Disciplen">
           <End Role="Disciplen" Type="Self.Disciplen" Multiplicity="1" />
           <End Role="Journal" Type="Self.Journal" Multiplicity="*" />
@@ -206,15 +259,29 @@
         <EntityContainer Name="Хранилище ZeroModelContainer">
           <EntitySet Name="Disciplen" EntityType="Self.Disciplen" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FormTime" EntityType="Self.FormTime" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="History" EntityType="Self.History" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Journal" EntityType="Self.Journal" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NameGroup" EntityType="Self.NameGroup" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Special" EntityType="Self.Special" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Teacher" EntityType="Self.Teacher" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="YearAdd" EntityType="Self.YearAdd" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_History_Status" Association="Self.FK_History_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="History" EntitySet="History" />
+          </AssociationSet>
+          <AssociationSet Name="FK_History_Student" Association="Self.FK_History_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="History" EntitySet="History" />
+          </AssociationSet>
+          <AssociationSet Name="FK_History_User" Association="Self.FK_History_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="History" EntitySet="History" />
+          </AssociationSet>
           <AssociationSet Name="FK_Journal_Disciplen" Association="Self.FK_Journal_Disciplen">
             <End Role="Disciplen" EntitySet="Disciplen" />
             <End Role="Journal" EntitySet="Journal" />
@@ -259,10 +326,12 @@
         <EntityContainer Name="ZeroEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Disciplen" EntityType="ZeroModel.Disciplen" />
           <EntitySet Name="FormTime" EntityType="ZeroModel.FormTime" />
+          <EntitySet Name="History" EntityType="ZeroModel.History" />
           <EntitySet Name="Journal" EntityType="ZeroModel.Journal" />
           <EntitySet Name="NameGroup" EntityType="ZeroModel.NameGroup" />
           <EntitySet Name="Role" EntityType="ZeroModel.Role" />
           <EntitySet Name="Special" EntityType="ZeroModel.Special" />
+          <EntitySet Name="Status" EntityType="ZeroModel.Status" />
           <EntitySet Name="Student" EntityType="ZeroModel.Student" />
           <EntitySet Name="sysdiagrams" EntityType="ZeroModel.sysdiagrams" />
           <EntitySet Name="Teacher" EntityType="ZeroModel.Teacher" />
@@ -280,6 +349,18 @@
             <End Role="FormTime" EntitySet="FormTime" />
             <End Role="Student" EntitySet="Student" />
           </AssociationSet>
+          <AssociationSet Name="FK_History_Status" Association="ZeroModel.FK_History_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="History" EntitySet="History" />
+          </AssociationSet>
+          <AssociationSet Name="FK_History_Student" Association="ZeroModel.FK_History_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="History" EntitySet="History" />
+          </AssociationSet>
+          <AssociationSet Name="FK_History_User" Association="ZeroModel.FK_History_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="History" EntitySet="History" />
+          </AssociationSet>
           <AssociationSet Name="FK_Journal_NameGroup" Association="ZeroModel.FK_Journal_NameGroup">
             <End Role="NameGroup" EntitySet="NameGroup" />
             <End Role="Journal" EntitySet="Journal" />
@@ -287,6 +368,10 @@
           <AssociationSet Name="FK_Journal_Student" Association="ZeroModel.FK_Journal_Student">
             <End Role="Student" EntitySet="Student" />
             <End Role="Journal" EntitySet="Journal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_NameGroup" Association="ZeroModel.FK_Student_NameGroup">
+            <End Role="NameGroup" EntitySet="NameGroup" />
+            <End Role="Student" EntitySet="Student" />
           </AssociationSet>
           <AssociationSet Name="FK_User_Role" Association="ZeroModel.FK_User_Role">
             <End Role="Role" EntitySet="Role" />
@@ -298,10 +383,6 @@
           </AssociationSet>
           <AssociationSet Name="FK_Student_YearAdd" Association="ZeroModel.FK_Student_YearAdd">
             <End Role="YearAdd" EntitySet="YearAdd" />
-            <End Role="Student" EntitySet="Student" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Student_NameGroup" Association="ZeroModel.FK_Student_NameGroup">
-            <End Role="NameGroup" EntitySet="NameGroup" />
             <End Role="Student" EntitySet="Student" />
           </AssociationSet>
         </EntityContainer>
@@ -321,6 +402,19 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Student" Relationship="ZeroModel.FK_Student_FormTime" FromRole="FormTime" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="History">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdTeacher" Type="Int32" Nullable="false" />
+          <Property Name="IdStudent" Type="Int32" Nullable="false" />
+          <Property Name="IdStatus" Type="Int32" Nullable="false" />
+          <Property Name="DateEvent" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Status" Relationship="ZeroModel.FK_History_Status" FromRole="History" ToRole="Status" />
+          <NavigationProperty Name="Student" Relationship="ZeroModel.FK_History_Student" FromRole="History" ToRole="Student" />
+          <NavigationProperty Name="User" Relationship="ZeroModel.FK_History_User" FromRole="History" ToRole="User" />
         </EntityType>
         <EntityType Name="Journal">
           <Key>
@@ -360,6 +454,14 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Student" Relationship="ZeroModel.FK_Student_Special" FromRole="Special" ToRole="Student" />
         </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="History" Relationship="ZeroModel.FK_History_Status" FromRole="Status" ToRole="History" />
+        </EntityType>
         <EntityType Name="Student">
           <Key>
             <PropertyRef Name="Id" />
@@ -369,12 +471,13 @@
           <Property Name="IdSpecial" Type="Int32" Nullable="false" />
           <Property Name="IdYearAdd" Type="Int32" Nullable="false" />
           <Property Name="IdFormTime" Type="Int32" Nullable="false" />
+          <Property Name="IdNameGroup" Type="Int32" Nullable="false" />
           <NavigationProperty Name="FormTime" Relationship="ZeroModel.FK_Student_FormTime" FromRole="Student" ToRole="FormTime" />
+          <NavigationProperty Name="History" Relationship="ZeroModel.FK_History_Student" FromRole="Student" ToRole="History" />
           <NavigationProperty Name="Journal" Relationship="ZeroModel.FK_Journal_Student" FromRole="Student" ToRole="Journal" />
+          <NavigationProperty Name="NameGroup" Relationship="ZeroModel.FK_Student_NameGroup" FromRole="Student" ToRole="NameGroup" />
           <NavigationProperty Name="Special" Relationship="ZeroModel.FK_Student_Special" FromRole="Student" ToRole="Special" />
           <NavigationProperty Name="YearAdd" Relationship="ZeroModel.FK_Student_YearAdd" FromRole="Student" ToRole="YearAdd" />
-          <Property Name="IdNameGroup" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="NameGroup" Relationship="ZeroModel.FK_Student_NameGroup" FromRole="Student" ToRole="NameGroup" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -403,6 +506,7 @@
           <Property Name="Login" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="IdRole" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="History" Relationship="ZeroModel.FK_History_User" FromRole="User" ToRole="History" />
           <NavigationProperty Name="Role" Relationship="ZeroModel.FK_User_Role" FromRole="User" ToRole="Role" />
         </EntityType>
         <EntityType Name="YearAdd">
@@ -449,6 +553,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_History_Status">
+          <End Type="ZeroModel.Status" Role="Status" Multiplicity="1" />
+          <End Type="ZeroModel.History" Role="History" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="History">
+              <PropertyRef Name="IdStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_History_Student">
+          <End Type="ZeroModel.Student" Role="Student" Multiplicity="1" />
+          <End Type="ZeroModel.History" Role="History" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="History">
+              <PropertyRef Name="IdStudent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_History_User">
+          <End Type="ZeroModel.User" Role="User" Multiplicity="1" />
+          <End Type="ZeroModel.History" Role="History" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="History">
+              <PropertyRef Name="IdTeacher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Journal_NameGroup">
           <End Type="ZeroModel.NameGroup" Role="NameGroup" Multiplicity="1" />
           <End Type="ZeroModel.Journal" Role="Journal" Multiplicity="*" />
@@ -470,6 +610,18 @@
             </Principal>
             <Dependent Role="Journal">
               <PropertyRef Name="idStudent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_NameGroup">
+          <End Type="ZeroModel.NameGroup" Role="NameGroup" Multiplicity="1" />
+          <End Type="ZeroModel.Student" Role="Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NameGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="IdNameGroup" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -509,19 +661,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Student_NameGroup">
-          <End Type="ZeroModel.NameGroup" Role="NameGroup" Multiplicity="1" />
-          <End Type="ZeroModel.Student" Role="Student" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="NameGroup">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Student">
-              <PropertyRef Name="IdNameGroup" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -539,6 +679,17 @@
             <EntityTypeMapping TypeName="ZeroModel.FormTime">
               <MappingFragment StoreEntitySet="FormTime">
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="History">
+            <EntityTypeMapping TypeName="ZeroModel.History">
+              <MappingFragment StoreEntitySet="History">
+                <ScalarProperty Name="DateEvent" ColumnName="DateEvent" />
+                <ScalarProperty Name="IdStatus" ColumnName="IdStatus" />
+                <ScalarProperty Name="IdStudent" ColumnName="IdStudent" />
+                <ScalarProperty Name="IdTeacher" ColumnName="IdTeacher" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -573,6 +724,14 @@
           <EntitySetMapping Name="Special">
             <EntityTypeMapping TypeName="ZeroModel.Special">
               <MappingFragment StoreEntitySet="Special">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="ZeroModel.Status">
+              <MappingFragment StoreEntitySet="Status">
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>

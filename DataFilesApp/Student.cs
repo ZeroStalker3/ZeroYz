@@ -17,6 +17,7 @@ namespace ZeroYz.DataFilesApp
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Student()
         {
+            this.History = new HashSet<History>();
             this.Journal = new HashSet<Journal>();
         }
     
@@ -29,9 +30,11 @@ namespace ZeroYz.DataFilesApp
     
         public virtual FormTime FormTime { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<History> History { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Journal> Journal { get; set; }
+        public virtual NameGroup NameGroup { get; set; }
         public virtual Special Special { get; set; }
         public virtual YearAdd YearAdd { get; set; }
-        public virtual NameGroup NameGroup { get; set; }
     }
 }

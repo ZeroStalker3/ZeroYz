@@ -5,26 +5,31 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="164fec034e304423bb90a4763606caa8" Name="Diagram1" ZoomLevel="127">
-        <EntityTypeShape EntityType="ZeroModel.Disciplen" Width="1.5" PointX="3" PointY="7" />
-        <EntityTypeShape EntityType="ZeroModel.FormTime" Width="1.5" PointX="0.75" PointY="1.5" />
-        <EntityTypeShape EntityType="ZeroModel.Journal" Width="1.5" PointX="5.25" PointY="1" />
-        <EntityTypeShape EntityType="ZeroModel.NameGroup" Width="1.5" PointX="3" PointY="4.625" />
-        <EntityTypeShape EntityType="ZeroModel.Role" Width="1.5" PointX="5.75" PointY="5.125" />
-        <EntityTypeShape EntityType="ZeroModel.Special" Width="1.5" PointX="0.75" PointY="4.625" />
-        <EntityTypeShape EntityType="ZeroModel.Student" Width="1.5" PointX="3" PointY="1" />
-        <EntityTypeShape EntityType="ZeroModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" />
-        <EntityTypeShape EntityType="ZeroModel.Teacher" Width="1.5" PointX="5.25" PointY="8" />
-        <EntityTypeShape EntityType="ZeroModel.User" Width="1.5" PointX="8" PointY="4.875" />
-        <EntityTypeShape EntityType="ZeroModel.YearAdd" Width="1.5" PointX="0.75" PointY="7" />
+        <EntityTypeShape EntityType="ZeroModel.Disciplen" Width="1.5" PointX="0.75" PointY="9.125" />
+        <EntityTypeShape EntityType="ZeroModel.FormTime" Width="1.5" PointX="3.75" PointY="7.25" />
+        <EntityTypeShape EntityType="ZeroModel.History" Width="1.5" PointX="8.25" PointY="3.75" />
+        <EntityTypeShape EntityType="ZeroModel.Journal" Width="1.5" PointX="3" PointY="3.75" />
+        <EntityTypeShape EntityType="ZeroModel.NameGroup" Width="1.5" PointX="0.75" PointY="4.125" />
+        <EntityTypeShape EntityType="ZeroModel.Role" Width="1.5" PointX="3.75" PointY="12.375" />
+        <EntityTypeShape EntityType="ZeroModel.Special" Width="1.5" PointX="3.75" PointY="9.5" />
+        <EntityTypeShape EntityType="ZeroModel.Status" Width="1.5" PointX="6" PointY="0.75" />
+        <EntityTypeShape EntityType="ZeroModel.Student" Width="1.5" PointX="6" PointY="3.375" />
+        <EntityTypeShape EntityType="ZeroModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="8.25" />
+        <EntityTypeShape EntityType="ZeroModel.Teacher" Width="1.5" PointX="3" PointY="15.125" />
+        <EntityTypeShape EntityType="ZeroModel.User" Width="1.5" PointX="6" PointY="12.125" />
+        <EntityTypeShape EntityType="ZeroModel.YearAdd" Width="1.5" PointX="3.75" PointY="0.875" />
         <AssociationConnector Association="ZeroModel.FK_Journal_Disciplen" />
         <AssociationConnector Association="ZeroModel.FK_Teacher_Disciplen" />
         <AssociationConnector Association="ZeroModel.FK_Student_FormTime" />
+        <AssociationConnector Association="ZeroModel.FK_History_Status" />
+        <AssociationConnector Association="ZeroModel.FK_History_Student" />
+        <AssociationConnector Association="ZeroModel.FK_History_User" />
         <AssociationConnector Association="ZeroModel.FK_Journal_NameGroup" />
         <AssociationConnector Association="ZeroModel.FK_Journal_Student" />
+        <AssociationConnector Association="ZeroModel.FK_Student_NameGroup" />
         <AssociationConnector Association="ZeroModel.FK_User_Role" />
         <AssociationConnector Association="ZeroModel.FK_Student_Special" />
         <AssociationConnector Association="ZeroModel.FK_Student_YearAdd" />
-        <AssociationConnector Association="ZeroModel.FK_Student_NameGroup" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
