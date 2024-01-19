@@ -12,7 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ZeroYz.DataFilesApp;
 using ZeroYz.MVC.Controller;
+using ZeroYz.MVC.HelpController;
 
 namespace ZeroYz.MVC
 {
@@ -28,10 +30,12 @@ namespace ZeroYz.MVC
 
         private void Check_Click(object sender, RoutedEventArgs e)
         {
+            MessageBox.Show(ControllerLogin.CheckLoginOdb(TxbLogin.Text));
+        }
 
-            ControllerLogin controllerLogin = new ControllerLogin();
-
-            MessageBox.Show(controllerLogin.CheckLoginOdb(TxbLogin.Text));
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            FrameApp.frmObj.GoBack();
         }
     }
 }

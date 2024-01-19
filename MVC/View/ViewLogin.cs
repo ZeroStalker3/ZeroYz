@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZeroYz.MVC.HelpController;
 
 namespace ZeroYz.MVC.View
 {
@@ -10,7 +11,7 @@ namespace ZeroYz.MVC.View
     {
         public string GetLogin (string loginCheckOdb)
         {
-            return loginCheckOdb ;
+            return DateBaseControllerHelp.GetLoginMain(loginCheckOdb);
         }
     }
 }

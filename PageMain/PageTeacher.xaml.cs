@@ -59,7 +59,7 @@ namespace ZeroYz.PageMain
 
         private void MVC_Click(object sender, RoutedEventArgs e)
         {
-            FrameApp.frmObj.Navigate(new PageMVC());
+            FrameApp.frmObj.Navigate(new ZeroYz.MVC.PageMVC());   
         }
     }
 }

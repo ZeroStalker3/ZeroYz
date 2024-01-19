@@ -26,7 +26,7 @@
             <StackPanel 
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
-                Width="50">
+                Width="60">
                 <Button
                     Name="Back"
                     Click="Back_Click"

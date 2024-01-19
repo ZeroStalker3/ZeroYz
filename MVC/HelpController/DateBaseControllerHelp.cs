@@ -11,11 +11,10 @@ namespace ZeroYz.MVC.HelpController
     {
         public static string GetLoginMain(string getSetLogin)
         {
-            User userObj = OdbConnectHelper.entObj.User.FirstOrDefault(x => x.Login == ClientInfo.LoginCheck);
-            
+            User userObj = OdbConnectHelper.entObj.User.FirstOrDefault(x => x.Login == getSetLogin);
             while(true)
             {
-                if (userObj == null && userObj.Login == getSetLogin) 
+                if (userObj != null) 
                 {
                     return "Пользователь есть";
                 }

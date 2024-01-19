@@ -9,7 +9,7 @@ namespace ZeroYz.MVC.Controller
 {
     class ControllerLogin
     {
-        public string CheckLoginOdb(string loginCheck)
+        public static string CheckLoginOdb(string loginCheck)
         {
             ViewLogin viewLogin = new ViewLogin();
             return viewLogin.GetLogin(loginCheck);

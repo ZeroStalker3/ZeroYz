@@ -9,10 +9,16 @@
       Title="MVC">
 
     <Grid>
+        <Button
+            Style="{StaticResource BtnTransparent}"
+            Name="Back"
+            Click="Back_Click"
+            />
         <StackPanel
             VerticalAlignment="Center"
             HorizontalAlignment="Center">
             <TextBlock
+                Margin="5"
                 HorizontalAlignment="Center"
                 FontSize="12pt"
                 Text="Введите логин:"/>
@@ -20,6 +26,7 @@
                 FontSize="12pt"
                 Name="TxbLogin"/>
             <Button
+                Content="Ok"
                 Click="Check_Click"
                 Name="Check"/>
             
