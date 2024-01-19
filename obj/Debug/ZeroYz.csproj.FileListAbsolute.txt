@@ -47,3 +47,5 @@ B:\VS FILES\ZeroYz\obj\Debug\Teacher\PageDeleteStudent.g.cs
 B:\VS FILES\ZeroYz\obj\Debug\Teacher\PageMVC.g.cs
 B:\VS FILES\ZeroYz\obj\Debug\Teacher\PageDeleteStudent.baml
 B:\VS FILES\ZeroYz\obj\Debug\Teacher\PageMVC.baml
+B:\VS FILES\ZeroYz\obj\Debug\MVC\PageMVC.g.cs
+B:\VS FILES\ZeroYz\obj\Debug\MVC\PageMVC.baml

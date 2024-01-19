@@ -89,6 +89,13 @@
     <Compile Include="Director\WindowDirector.xaml.cs">
       <DependentUpon>WindowDirector.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MVC\Controller\ControllerLogin.cs" />
+    <Compile Include="MVC\HelpController\ClientInfo.cs" />
+    <Compile Include="MVC\HelpController\DateBaseControllerHelp.cs" />
+    <Compile Include="MVC\PageMVC.xaml.cs">
+      <DependentUpon>PageMVC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVC\View\ViewLogin.cs" />
     <Compile Include="Teacher\PageAddStudent.xaml.cs">
       <DependentUpon>PageAddStudent.xaml</DependentUpon>
     </Compile>
@@ -114,6 +121,10 @@
       <DependentUpon>PageMVC.xaml</DependentUpon>
     </Compile>
     <Page Include="Director\WindowDirector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVC\PageMVC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -304,8 +315,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="MVC\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -42,6 +42,7 @@ namespace ZeroYz.Teacher
                                           "Уведомление",
                                           MessageBoxButton.OK,
                                           MessageBoxImage.Information);
+
                         OdbConnectHelper.entObj.SaveChanges();
                         GridList.ItemsSource = OdbConnectHelper.entObj.Student.ToList();
                     }
