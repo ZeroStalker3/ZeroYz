@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ZeroYz.DataFilesApp;
 using ZeroYz.ClassHelper;
+using ZeroYz.Director;
 
 namespace ZeroYz.PageMain
 {
@@ -76,6 +77,7 @@ namespace ZeroYz.PageMain
                 else
                 {
                     UserControlHelp.IdUser = userObj.ID;
+                    UserControlHelp.LoginUser = userObj.Name;
                     switch (userObj.IdRole)
                     {
                         case 1:
@@ -86,6 +88,10 @@ namespace ZeroYz.PageMain
                         case 2:
                             RememberMe();
                             FrameApp.frmObj.Navigate(new PageTeacher());
+                            break;
+                        case 3:
+                            WindowDirector windowDirector = new WindowDirector();
+                            windowDirector.Show();
                             break;
                     }
                 }

@@ -185,6 +185,7 @@
     <Property Name="IdRole" Type="Int32" Nullable="false" />
     <NavigationProperty Name="History" Relationship="ZeroModel.FK_History_User" FromRole="User" ToRole="History" />
     <NavigationProperty Name="Role" Relationship="ZeroModel.FK_User_Role" FromRole="User" ToRole="Role" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="YearAdd">
     <Key>

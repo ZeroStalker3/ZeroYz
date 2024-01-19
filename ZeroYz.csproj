@@ -86,6 +86,9 @@
     <Compile Include="DataFilesApp\Status.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Director\WindowDirector.xaml.cs">
+      <DependentUpon>WindowDirector.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Teacher\PageAddStudent.xaml.cs">
       <DependentUpon>PageAddStudent.xaml</DependentUpon>
     </Compile>
@@ -104,6 +107,10 @@
     <Compile Include="Teacher\PageListStudent.xaml.cs">
       <DependentUpon>PageListStudent.xaml</DependentUpon>
     </Compile>
+    <Page Include="Director\WindowDirector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PageMain\PageStudent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -104,6 +104,7 @@
           <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="IdRole" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="YearAdd">
           <Key>
@@ -508,6 +509,7 @@
           <Property Name="IdRole" Type="Int32" Nullable="false" />
           <NavigationProperty Name="History" Relationship="ZeroModel.FK_History_User" FromRole="User" ToRole="History" />
           <NavigationProperty Name="Role" Relationship="ZeroModel.FK_User_Role" FromRole="User" ToRole="Role" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="YearAdd">
           <Key>
@@ -772,6 +774,7 @@
           <EntitySetMapping Name="User">
             <EntityTypeMapping TypeName="ZeroModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IdRole" ColumnName="IdRole" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Login" ColumnName="Login" />

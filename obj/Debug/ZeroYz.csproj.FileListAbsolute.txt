@@ -41,3 +41,5 @@ B:\VS FILES\ZeroYz\obj\Debug\Teacher\PageEditEval.g.cs
 B:\VS FILES\ZeroYz\obj\Debug\Teacher\PageEditEval.baml
 B:\VS FILES\ZeroYz\obj\Debug\Teacher\PageEditEvalStudent.g.cs
 B:\VS FILES\ZeroYz\obj\Debug\Teacher\PageEditEvalStudent.baml
+B:\VS FILES\ZeroYz\obj\Debug\Director\WindowDirector.g.cs
+B:\VS FILES\ZeroYz\obj\Debug\Director\WindowDirector.baml
