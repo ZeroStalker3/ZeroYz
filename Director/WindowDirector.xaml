@@ -69,6 +69,7 @@
         <StackPanel
             Grid.Row="1">
         <DataGrid
+
             CanUserSortColumns="False"
             Height="210"
             Name="GridListHistory"
