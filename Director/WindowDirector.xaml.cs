@@ -80,7 +80,7 @@ namespace ZeroYz.Director
 
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
-            this.;
+            this.Close();
         }
 
         private void Resize_Click(object sender, RoutedEventArgs e)

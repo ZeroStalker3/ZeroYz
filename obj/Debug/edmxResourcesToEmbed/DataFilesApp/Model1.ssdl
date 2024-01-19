@@ -169,7 +169,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Journal_Student">
-    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="Student" Type="Self.Student" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Journal" Type="Self.Journal" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Student">

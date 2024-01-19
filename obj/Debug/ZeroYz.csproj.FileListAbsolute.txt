@@ -43,3 +43,7 @@ B:\VS FILES\ZeroYz\obj\Debug\Teacher\PageEditEvalStudent.g.cs
 B:\VS FILES\ZeroYz\obj\Debug\Teacher\PageEditEvalStudent.baml
 B:\VS FILES\ZeroYz\obj\Debug\Director\WindowDirector.g.cs
 B:\VS FILES\ZeroYz\obj\Debug\Director\WindowDirector.baml
+B:\VS FILES\ZeroYz\obj\Debug\Teacher\PageDeleteStudent.g.cs
+B:\VS FILES\ZeroYz\obj\Debug\Teacher\PageMVC.g.cs
+B:\VS FILES\ZeroYz\obj\Debug\Teacher\PageDeleteStudent.baml
+B:\VS FILES\ZeroYz\obj\Debug\Teacher\PageMVC.baml

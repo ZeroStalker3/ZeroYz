@@ -51,5 +51,15 @@ namespace ZeroYz.PageMain
         {
             FrameApp.frmObj.Navigate(new PageEditEval());
         }
+
+        private void BtnDeleteStudent_Click(object sender, RoutedEventArgs e)
+        {
+            FrameApp.frmObj.Navigate(new PageDeleteStudent());
+        }
+
+        private void MVC_Click(object sender, RoutedEventArgs e)
+        {
+            FrameApp.frmObj.Navigate(new PageMVC());
+        }
     }
 }

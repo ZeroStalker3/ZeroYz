@@ -183,9 +183,9 @@
     <Property Name="Login" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="IdRole" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="History" Relationship="ZeroModel.FK_History_User" FromRole="User" ToRole="History" />
     <NavigationProperty Name="Role" Relationship="ZeroModel.FK_User_Role" FromRole="User" ToRole="Role" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="YearAdd">
     <Key>
@@ -280,7 +280,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Journal_Student">
-    <End Type="ZeroModel.Student" Role="Student" Multiplicity="1" />
+    <End Type="ZeroModel.Student" Role="Student" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Type="ZeroModel.Journal" Role="Journal" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Student">

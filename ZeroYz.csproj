@@ -92,6 +92,9 @@
     <Compile Include="Teacher\PageAddStudent.xaml.cs">
       <DependentUpon>PageAddStudent.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Teacher\PageDeleteStudent.xaml.cs">
+      <DependentUpon>PageDeleteStudent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Teacher\PageEditEval.xaml.cs">
       <DependentUpon>PageEditEval.xaml</DependentUpon>
     </Compile>
@@ -106,6 +109,9 @@
     </Compile>
     <Compile Include="Teacher\PageListStudent.xaml.cs">
       <DependentUpon>PageListStudent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Teacher\PageMVC.xaml.cs">
+      <DependentUpon>PageMVC.xaml</DependentUpon>
     </Compile>
     <Page Include="Director\WindowDirector.xaml">
       <SubType>Designer</SubType>
@@ -196,6 +202,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Teacher\PageDeleteStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Teacher\PageEditEval.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -213,6 +223,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Teacher\PageListStudent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Teacher\PageMVC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -289,6 +303,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MVC\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -36,10 +36,12 @@
                         Click="EditEval_Click"/>
                 
                 <Button Content = "Удалить студента"
-                        />
+                        Name="BtnDeleteStudent"
+                        Click="BtnDeleteStudent_Click"/>
                 
                 <Button Content = "MVC"
-                        />
+                        Name="MVC"
+                        Click="MVC_Click"/>
             
             </StackPanel>
         </Grid>

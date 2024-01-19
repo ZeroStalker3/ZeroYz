@@ -23,7 +23,9 @@
                     Width="150"
                     Text="Введите ФИО"
                     />
-                <TextBox Name="TbNameStudent"/>
+                <TextBox
+                    Margin="5,0,0,0"
+                    Name="TbNameStudent"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">

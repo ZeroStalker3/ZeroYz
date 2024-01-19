@@ -21,22 +21,43 @@
             <StackPanel 
                 VerticalAlignment="Top"
                 Orientation="Horizontal">
-            <Button 
-                Background="Red"
+                <Button
                 Name="Exit"
                 Click="Exit_Click"
-                Style="{StaticResource windowsPanel}"/>
-            <Button 
-                Background="Green"
+                Style="{StaticResource windowsPanel}">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Border
+                                CornerRadius="10"
+                                Background="Red"/>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button
                 Margin="0,5,0,5"
                 Name="Resize"
                 Click="Resize_Click"
-                Style="{StaticResource windowsPanel}"/>
-            <Button 
-                Background="Yellow"
+                Style="{StaticResource windowsPanel}">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Border
+                                CornerRadius="10"
+                                Background="Green"/>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button 
                 Name="Min"
                 Click="Min_Click"
-                Style="{StaticResource windowsPanel}"/>
+                Style="{StaticResource windowsPanel}">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Border
+                                CornerRadius="10"
+                                Background="Yellow"/>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
             </StackPanel>
             <Image Source="B:\VS FILES\ZeroYz\Resurses\File.jpg"/>
             <TextBlock
