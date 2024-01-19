@@ -58,10 +58,9 @@ namespace ZeroYz.Teacher
             ListStudent.SelectedIndex = 0;
         }
 
-        private void BtnSave_Click(object sender, RoutedEventArgs e)
+        private void Back_Click_1(object sender, RoutedEventArgs e)
         {
-            OdbConnectHelper.entObj.SaveChanges();
-            //MessageBox.Show("Данные успешно изменены у студента" + student);
+            FrameApp.frmObj.GoBack();
         }
     }
 }

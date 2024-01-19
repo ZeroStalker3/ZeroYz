@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ZeroYz.ClassHelper;
 using ZeroYz.DataFilesApp;
 
 namespace ZeroYz.Teacher
@@ -22,12 +23,16 @@ namespace ZeroYz.Teacher
     public partial class PageEditEvalStudent : Page
     {
         private string NameStudent;
+        public int StudentId;
+
         public PageEditEvalStudent(Student student)
         {
             InitializeComponent();
 
             Name.Text = student.Name;
             NameStudent = student.Name;
+
+            StudentId = student.Id;
  
             GridListStudent.ItemsSource = OdbConnectHelper.entObj.Journal.Where(x => x.idStudent == student.Id).ToList();
             GridListStudent.SelectedIndex = 0;
@@ -38,12 +43,13 @@ namespace ZeroYz.Teacher
         {
             History historyObj = new History()
             {
-                IdTeacher = 2 ,
-                IdStudent = 2,
+                IdTeacher = UserControlHelp.IdUser,
+                IdStudent = StudentId,
                 IdStatus = 2,
-                DateEvent
+                DateEvent = DateTime.Now
             };
 
+            OdbConnectHelper.entObj.History.Add(historyObj);
             OdbConnectHelper.entObj.SaveChanges();
             MessageBox.Show("Данные успешно изменены у студента" + NameStudent, 
                 "Уведомления", MessageBoxButton.OK, MessageBoxImage.Information);

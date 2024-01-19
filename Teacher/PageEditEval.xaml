@@ -12,11 +12,7 @@
         <Button 
             Style="{StaticResource BtnTransparent}"
             Name="Back"
-            Click="Back_Click"/>
-        <Button Content="Назад"
-            Name="BtnSave"
-            Click="BtnSave_Click"
-            Style="{StaticResource BtnTransparent }"/>
+            Click="Back_Click_1"/>
         <StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock

@@ -75,6 +75,7 @@ namespace ZeroYz.PageMain
                 }
                 else
                 {
+                    UserControlHelp.IdUser = userObj.ID;
                     switch (userObj.IdRole)
                     {
                         case 1:

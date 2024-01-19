@@ -13,6 +13,6 @@ namespace ZeroYz.ClassHelper
     {
         public static int IdUser { get; set; }
         public static string PasswordUser { get; set; }
-        public static string LoginUser { get; set; } = "Нет логина";
+        public static string LoginUser { get; set; }
     }
 }
