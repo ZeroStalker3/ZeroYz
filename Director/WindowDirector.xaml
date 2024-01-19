@@ -5,14 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ZeroYz.Director"
         mc:Ignorable="d"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown"
         Title="Окно Директора" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="105*"/>
             <RowDefinition Height="314*"/>
         </Grid.RowDefinitions>
-
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Orientation="Horizontal"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="0,5,0,0">
+            <StackPanel 
+                VerticalAlignment="Top"
+                Orientation="Horizontal">
+            <Button 
+                Background="Red"
+                Name="Exit"
+                Click="Exit_Click"
+                Style="{StaticResource windowsPanel}"/>
+            <Button 
+                Background="Green"
+                Margin="0,5,0,5"
+                Name="Resize"
+                Click="Resize_Click"
+                Style="{StaticResource windowsPanel}"/>
+            <Button 
+                Background="Yellow"
+                Name="Min"
+                Click="Min_Click"
+                Style="{StaticResource windowsPanel}"/>
+            </StackPanel>
             <Image Source="B:\VS FILES\ZeroYz\Resurses\File.jpg"/>
             <TextBlock
                 FontSize="14pt"
@@ -23,6 +48,7 @@
         <StackPanel
             Grid.Row="1">
         <DataGrid
+            CanUserSortColumns="False"
             Height="210"
             Name="GridListHistory"
             AutoGenerateColumns="False"
@@ -50,16 +76,50 @@
                     />
             </DataGrid.Columns>
         </DataGrid>
-            <StackPanel Orientation="Horizontal">
+            <StackPanel
+                Margin="0,5,0,0"
+                Orientation="Horizontal">
                 <TextBlock
-                Text="Записей итого: "/>
+                Text="Записей итого:"
+                    FontSize="11pt"/>
                 <TextBlock
                     Margin="5,0,0,0"
                     FontStyle="Italic"
-                    Name="TotalTB"/>
+                    Name="TotalTB"
+                    FontSize="11pt"/>
                 <TextBlock
+                    FontSize="11pt"
                     Margin="5,0,0,0"
                     Text="стр."/>
+            </StackPanel>
+            <StackPanel
+                Margin="0"
+                Orientation="Horizontal">
+                <TextBlock
+                Text="Последнее изменение:"
+                    FontSize="11pt"/>
+                <TextBlock
+                    Margin="5,0,0,0"
+                    FontStyle="Italic"
+                    Name="TxtDate"
+                    FontSize="11pt"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock
+                    FontWeight="Bold"
+                    Text="Фильтр:"
+                    FontSize="11pt"/>
+                <RadioButton
+                    Content="По Убыванию"
+                    Name="RbDec"
+                    Click="RbDec_Click"
+                    FontSize="11pt"/>
+                <RadioButton 
+                    Content="По Возрастанию"
+                    Name="RbUp"
+                    Click="RbUp_Click"
+                    FontSize="11pt"
+                    IsChecked="True"/>
             </StackPanel>
         </StackPanel>
     </Grid>

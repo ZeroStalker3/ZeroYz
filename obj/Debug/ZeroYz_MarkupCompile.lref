@@ -1,5 +1,6 @@
 ﻿
 FB:\VS FILES\ZeroYz\App.xaml;;
+FB:\VS FILES\ZeroYz\Director\WindowDirector.xaml;;
 FB:\VS FILES\ZeroYz\PageMain\PageStudent.xaml;;
 FB:\VS FILES\ZeroYz\MainWindow.xaml;;
 FB:\VS FILES\ZeroYz\PageMain\PageLogin.xaml;;
@@ -7,9 +8,8 @@ FB:\VS FILES\ZeroYz\PageMain\PageRegistration.xaml;;
 FB:\VS FILES\ZeroYz\PageMain\PageTeacher.xaml;;
 FB:\VS FILES\ZeroYz\Teacher\PageAddStudent.xaml;;
 FB:\VS FILES\ZeroYz\Teacher\PageEditEval.xaml;;
+FB:\VS FILES\ZeroYz\Teacher\PageEditEvalStudent.xaml;;
 FB:\VS FILES\ZeroYz\Teacher\PageEvaluation.xaml;;
 FB:\VS FILES\ZeroYz\Teacher\PageJournalStudent.xaml;;
 FB:\VS FILES\ZeroYz\Teacher\PageListStudent.xaml;;
-FB:\VS FILES\ZeroYz\Teacher\PageEditEvalStudent.xaml;;
-FB:\VS FILES\ZeroYz\Director\WindowDirector.xaml;;
 

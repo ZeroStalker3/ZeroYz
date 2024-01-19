@@ -58,5 +58,14 @@
             <Setter Property="Height" Value="25"/>
             <Setter Property="Background" Value="#FFEAEAEA"/>
         </Style>
+
+        <Style TargetType="Button" x:Key="windowsPanel">
+            <Setter Property="Width" Value="15"/>
+            <Setter Property="Height" Value="15"/>
+            <Setter Property="BorderThickness" Value="0pt"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
     </Application.Resources>
 </Application>
