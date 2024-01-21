@@ -29,7 +29,6 @@ namespace ZeroYz.Director
         {
             InitializeComponent();
 
-
             TxtName.Text = UserControlHelp.LoginUser;
 
             OdbConnectHelper.entObj = new ZeroEntities();

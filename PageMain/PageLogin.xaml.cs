@@ -78,19 +78,28 @@ namespace ZeroYz.PageMain
                 else
                 {
                     UserControlHelp.IdUser = userObj.ID;
+
                     UserControlHelp.LoginUser = userObj.Name;
+                    //UserControlHelp.LoginUser = Convert.ToString(res);
                     switch (userObj.IdRole)
                     {
                         case 1:
+                            Student student = new Student() 
+                            {
+                                Id = userObj.ID,
+                                Name = userObj.Name
+                            };
+
                             RememberMe();
                             UserControlHelp.LoginUser = LoginTxb.Text;
-                            FrameApp.frmObj.Navigate(new PageStudent());
+                            FrameApp.frmObj.Navigate(new PageStudent(student));
                             break;
                         case 2:
                             RememberMe();
                             FrameApp.frmObj.Navigate(new PageTeacher());
                             break;
                         case 3:
+                            RememberMe();
                             WindowDirector windowDirector = new WindowDirector();
                             windowDirector.Show();
                             break;

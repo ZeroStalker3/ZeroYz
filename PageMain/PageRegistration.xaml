@@ -22,7 +22,17 @@
         <StackPanel
         HorizontalAlignment="Center"
         VerticalAlignment="Center">
-            
+
+            <StackPanel 
+                HorizontalAlignment="Center"
+                Orientation="Horizontal">
+                <TextBlock
+                    Width="150"
+                    Text="Введите ФИО"/>
+
+                <TextBox Name="LoginTB"/>
+            </StackPanel>
+
             <StackPanel 
             HorizontalAlignment="Center"
             Orientation="Horizontal">

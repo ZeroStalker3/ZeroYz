@@ -126,7 +126,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_History_Student">
-          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="History" Type="Self.History" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Student">
@@ -570,7 +572,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_History_Student">
-          <End Type="ZeroModel.Student" Role="Student" Multiplicity="1" />
+          <End Type="ZeroModel.Student" Role="Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="ZeroModel.History" Role="History" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Student">

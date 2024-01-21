@@ -13,21 +13,42 @@
                 Name="BtnBack"
                 Click="BtnBack_Click"
                 Style="{StaticResource BtnTransparent }"/>
-
-        <StackPanel 
+        <StackPanel>
+            <StackPanel 
             Orientation="Horizontal"
             HorizontalAlignment="Left"
             VerticalAlignment="Top">
-            <TextBlock
+                <TextBlock
                 FontWeight="Bold"
                 FontSize="14pt"
                 Text="Логин: "/>
-            <TextBlock 
+                <TextBlock 
                 Margin="5,0,0,0"
                 FontSize="14pt"
+                Text="Login"
                 FontWeight="Bold"
                 Name="TxtLogin"/>
+            </StackPanel>
+            <StackPanel>
+                <DataGrid
+                    Name="GridList"
+                    AutoGenerateColumns="False"
+                    VerticalScrollBarVisibility="Auto"
+                    IsReadOnly="True"
+                    Height="250">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                            Width="*"
+                            Header="Оценка"
+                            Binding="{Binding Evaluation}"/>
+                        <DataGridTextColumn 
+                    Width = "*" 
+                    Header ="Предмет" 
+                    Binding="{Binding Disciplen.Name}"
+                    />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
         </StackPanel>
-        
     </Grid>
 </Page>

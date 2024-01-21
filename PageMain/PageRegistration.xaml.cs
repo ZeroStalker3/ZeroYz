@@ -49,6 +49,7 @@ namespace ZeroYz.PageMain
                 {
                     User userObj = new User()
                     {
+                        Name = LoginTB.Text,
                         Login = LogingTB.Text,
                         Password = Psw2.Password,
                         IdRole = 1

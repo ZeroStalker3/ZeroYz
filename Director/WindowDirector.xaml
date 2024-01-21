@@ -85,7 +85,7 @@
                 <DataGridTextColumn 
                     Width = "*" 
                     Header = "Студент" 
-                    Binding="{Binding Student.Name}"                    />
+                    Binding="{Binding Student.Name}"/>
                 <DataGridTextColumn 
                     Width = "*" 
                     Header = "Актиность" 

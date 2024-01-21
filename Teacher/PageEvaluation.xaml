@@ -49,6 +49,7 @@
                 Text="Оценка"
                 />
                 <TextBox 
+                    Margin="5,0,0,0"
                     TextChanged="CmbEval_TextChanged"
                     PreviewTextInput="CmbEval_PreviewTextInput"
                     Name="CmbEval" Background="#FFEAEAEA"/>

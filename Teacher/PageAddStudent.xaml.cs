@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -41,21 +42,25 @@ namespace ZeroYz.Teacher
         {
             try
             {
+                string NameStudent = TbNameStudent.Text;
+                //if (NameStudent == Convert.ToString(OdbConnectHelper.entObj.User.ToString()))
+                //{
                 Student stdObj = new Student()
-                {
-                    Name = TbNameStudent.Text,
-                    Special = CmbSpecial.SelectedItem as Special,
-                    YearAdd = CmbYear.SelectedItem as YearAdd,
-                    FormTime = CmbFT.SelectedItem as FormTime,
-                    NameGroup = CmbNG.SelectedItem as NameGroup
-                };
+                    {
+                        Name = NameStudent,
+                        Special = CmbSpecial.SelectedItem as Special,
+                        YearAdd = CmbYear.SelectedItem as YearAdd,
+                        FormTime = CmbFT.SelectedItem as FormTime,
+                        NameGroup = CmbNG.SelectedItem as NameGroup
+                    };
 
-                OdbConnectHelper.entObj.Student.Add(stdObj);
-                OdbConnectHelper.entObj.SaveChanges();
-                MessageBox.Show("Ученик " + stdObj.Name + " успешно добавлен в базу", "Уведомление",
-                    MessageBoxButton.OK,
-                    MessageBoxImage.Information);
-                FrameApp.frmObj.GoBack();
+                    OdbConnectHelper.entObj.Student.Add(stdObj);
+                    OdbConnectHelper.entObj.SaveChanges();
+                    MessageBox.Show("Ученик " + stdObj.Name + " успешно добавлен в базу", "Уведомление",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Information);
+                    FrameApp.frmObj.GoBack();
+                //}
             }
 
             catch (Exception ex)
