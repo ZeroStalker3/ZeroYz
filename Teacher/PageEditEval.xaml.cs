@@ -54,7 +54,8 @@ namespace ZeroYz.Teacher
         private void CmbSelectGroup_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int select = Convert.ToInt32(CmbSelectGroup.SelectedValue);
-            ListStudent.ItemsSource = OdbConnectHelper.entObj.Student.Where(x => x.IdNameGroup == select).ToList();
+            ListStudent.ItemsSource = OdbConnectHelper.entObj.Student.Where(x 
+                => x.IdNameGroup == select).ToList();
             ListStudent.SelectedIndex = 0;
         }
 
